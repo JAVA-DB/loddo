@@ -11,7 +11,7 @@
 }
 
 
-.header div{margin: 0 auto; padding:5% 10%;}
+.header div{margin: 0 auto; padding:3% 10%;}
 .header div h1{text-align: center; font-size: 2.5rem;}
 .header nav div{text-align: center;}
 
@@ -20,7 +20,7 @@
 .s_1 .main span:nth-child(6){background:none; color:gray}
 
 
-.s_2 div{text-align: center; padding: 10% 0;}
+.s_2 div{text-align: center; padding: 5% 0;}
 .s_2 div button{width: 40%; padding: 3% 0; font-size: 2vw;}
 .s_2 div button b{ animation-duration: 3s; animation-name: rainbowLink; animation-iteration-count: infinite; } 
 @keyframes rainbowLink {     
@@ -34,6 +34,12 @@
  100% { color: #e82aff; }
 }
 
+.s_2 div p{padding: 2% 0; font-size: 1vw;}
+
+
+footer div{background: black; color:white; text-align: center; font-size: 1.2vw; }
+footer div p{padding: 2% 0;}
+footer div p b{color: red; font-size: 1.7vw;}
 
 
 
