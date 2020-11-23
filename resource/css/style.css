@@ -17,7 +17,7 @@
 
 .s_1 .main{margin: 0 auto; padding: 4% 0; text-align: center; width: 70%; background: #efeeee;}
 .s_1 .main span{ border-radius: 141px; background-color: black; margin: 0 auto; color: white; text-align: center; width: 60px; height: 60px; display: inline-block; margin: 0 1%; line-height: 60px;}
-.s_1 .main span:nth-child(6){background:none; color:gray}
+.s_1 .main span:nth-child(){background:none; color:gray}
 
 
 .s_2 div{text-align: center; padding: 5% 0;}
