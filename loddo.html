@@ -36,13 +36,11 @@ function tq(){
             </nav>
         </header>
         <section id="s_1" class="section s_1">
-            <div class="main" >
-                <span v-for="value in number">{{value}}</span>
-            </div>
+            
         </section>
         <section class="section s_2">
             <div>
-                <button v-on:click="getNumber()">행운의 <b>똥</b> 번호 받기</button>
+                <button v-bind:disabled="YN" v-on:click="getNumber()">행운의 <b>똥</b> 번호 받기</button>
                 <p>※ 주의 버튼을 누를 시 밑에 나온 내용을 동의한 것 으로 간주됩니다. </p>
             </div>
         </section>
@@ -60,6 +58,8 @@ function tq(){
       el: '#app',
       data: {
         number : [],
+        count : 0,
+        YN : false,
       },
       computed:{
          
@@ -67,8 +67,16 @@ function tq(){
       methods : {
         getNumber: function(){
             $this = this;
+            
             var num = [];
             var append_num;
+
+            if($this.count == 9){
+                alert("연속으로 10번 만 가능 번호 다시 받고 싶으면 새로고침");
+                $this.YN=true;
+                return;
+            }
+
             while(num.length <= 6){
                 let rand = Math.floor(Math.random()* 45)+1;
                 if(num.indexOf(rand) === -1){
@@ -76,7 +84,16 @@ function tq(){
                 }
             }
             $this.number = num;
-            $(".s_1").append('<div class="main" ><span v-for="value in number">{{value}}</span></div>');
+            var span_num = ""
+            $.each(num,function(i,v){
+                span_num += "<span class=n"+v+">"+v+"</span>";
+                if(i==5){
+                    span_num += "<span><i class='fas fa-plus'></i></span>";
+                }
+                
+            });
+            $('.s_1').append('<div class="main">'+span_num+'</div>'); 
+            $this.count++;
         },
       },
       created: function(){
@@ -88,11 +105,18 @@ function tq(){
                     num.push(rand);
                 }
             }
-            $this.number = num;
+            var span_num = ""
+            $.each(num,function(i,v){
+                span_num += "<span class=n"+v+">"+v+"</span>";
+                if(i==5){
+                    span_num += "<span><i class='fas fa-plus'></i></span>";
+                }
+                
+            });
+            $('.s_1').append('<div class="main">'+span_num+'</div>'); 
       },
       mounted: function(){
-          var $vue = "this";
-          $vue.message = "메시지다....";
+
       },
     });
 </script>
