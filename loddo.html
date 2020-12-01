@@ -42,7 +42,7 @@
                 return;
             }
 
-            while(num.length <= 6){
+            while(num.length <= 5){
                 let rand = Math.floor(Math.random()* 45)+1;
                 if(num.indexOf(rand) === -1){
                     num.push(rand);
@@ -52,9 +52,9 @@
             var span_num = ""
             $.each(num,function(i,v){
                 span_num += "<span class=n"+v+">"+v+"</span>";
-                if(i==5){
-                    span_num += "<span><i class='fas fa-plus'></i></span>";
-                }
+                // if(i==5){
+                //     span_num += "<span><i class='fas fa-plus'></i></span>";
+                // }
                 
             });
             $('.s_1').append('<div class="main">'+span_num+'</div>'); 
@@ -65,7 +65,7 @@
       created: function(){
             $this = this;
             var num = [];
-            while(num.length <= 6){
+            while(num.length <= 5){
                 let rand = Math.floor(Math.random()* 45)+1;
                 if(num.indexOf(rand) === -1){
                     num.push(rand);
@@ -74,9 +74,9 @@
             var span_num = ""
             $.each(num,function(i,v){
                 span_num += "<span class=n"+v+">"+v+"</span>";
-                if(i==5){
-                    span_num += "<span><i class='fas fa-plus'></i></span>";
-                }
+                // if(i==5){
+                //     span_num += "<span><i class='fas fa-plus'></i></span>";
+                // }
                 
             });
             $('.s_1').append('<div class="main">'+span_num+'</div>'); 
