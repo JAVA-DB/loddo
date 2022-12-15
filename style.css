@@ -22,7 +22,7 @@
 
 .s_2 div{text-align: center; padding: 10% 0;}
 .s_2 div button{width: 40%; padding: 3% 0; font-size: 2vw;}
-.s_2 div button b , .s_2 div button{ animation-duration: 3s; animation-name: rainbowLink; animation-iteration-count: infinite; } 
+.s_2 div button b{ animation-duration: 3s; animation-name: rainbowLink; animation-iteration-count: infinite; } 
 @keyframes rainbowLink {     
  0% { color: #ff2a2a; }
  15% { color: #ff7a2a; }
