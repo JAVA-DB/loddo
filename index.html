@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title style="color: red;">로 똥</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="./resource/img/favicon.ico" type="image/x-icon">
+    
+    <link rel="stylesheet" href="./resource/css/reset.css">
+    <link rel="stylesheet" href="./resource/css/style.css">
+    
+    <script type="text/javascript" src="./resource/js/jquery-3.5.1.min.js"></script>
+    <script src="./resource/js/vue.js"></script>
+    <script src="./resource/js/loddo.js"></script>
+
+</head>
+<style>
+  footer { position: fixed; width: 100%; bottom: 0;}
+</style>
+<script type="text/javascript">
+    $(document).ready(function(){
+    var app = new Vue({
+      el: '#app',
+      data: {
+        number : [],
+        count : 0,
+        YN : false,
+      },
+      computed:{
+         
+      },
+      methods : {
+        getNumber: function(){
+            $this = this;
+            
+            var num = [];
+            var append_num;
+
+            if($this.count == 9){
+                alert("연속으로 10번 만 가능 번호 다시 받고 싶으면 새로고침");
+                $this.YN=true;
+                return;
+            }
+
+            while(num.length <= 5){
+                let rand = Math.floor(Math.random()* 45)+1;
+                if(num.indexOf(rand) === -1){
+                    num.push(rand);
+                }
+            }
+            num.sort(function(a, b) { // 오름차순
+                return a - b;
+                // 1, 2, 3, 4, 10, 11
+            });
+            var span_num = ""
+            $.each(num,function(i,v){
+                span_num += "<span class=n"+v+">"+v+"</span>";
+                // if(i==5){
+                //     span_num += "<span><i class='fas fa-plus'></i></span>";
+                // }
+                
+            });
+            $('.s_1').append('<div class="main">'+span_num+'</div>'); 
+            $this.count++;
+            document.getElementById('n_button').scrollIntoView();
+        },
+        sortArr: function(arr){
+          for(let i = 0; i < arr.length; i++) {
+            if(arr[i] > arr[i+1]){
+              let a = arr[i+1];
+              arr[i+1] = arr[i];
+              arr[i] = a;
+            }
+          }
+          console.log(arr)
+          return arr;
+        },
+      },
+      created: function(){
+            $this = this;
+            var num = [];
+            while(num.length <= 5){
+                let rand = Math.floor(Math.random()* 45)+1;
+                if(num.indexOf(rand) === -1){
+                    num.push(rand);
+                }
+            }
+            num.sort(function(a, b) { // 오름차순
+                return a - b;
+                // 1, 2, 3, 4, 10, 11
+            });
+            var span_num = ""
+            $.each(num,function(i,v){
+                span_num += "<span class=n"+v+">"+v+"</span>";
+                // if(i==5){
+                //     span_num += "<span><i class='fas fa-plus'></i></span>";
+                // }
+                
+            });
+            $('.s_1').append('<div class="main">'+span_num+'</div>'); 
+      },
+      mounted: function(){
+        getloddo_num();
+      },
+    });
+});
+</script>
+<body>
+    
+    <div id="app" class="wrapper">  
+        <header class="header">
+            <div class="title">
+                <h1>로 똥 번 호</h1>
+            </div>
+        
+            <nav>
+                <div>
+                    <!-- <iframe src="./frame_real_loddo.html" frameborder="0" scrolling="no" width="700" height="225" sandbox></iframe> -->
+                </div>
+            </nav>
+        </header>
+        <section id="s_1" class="section s_1">
+            
+        </section>
+        <section class="section s_2">
+            <div>
+                <button id="n_button" v-bind:disabled="YN" v-on:click="getNumber()">행운의 <b>똥</b> 번호 받기</button>
+                <p>※ 주의 버튼을 누를 시 하단에 기재된 내용을 동의한 것으로 간주됩니다.(꼭 참고해 주세요^^) </p>
+            </div>
+        </section>
+        <footer>
+            <div>
+                <p>※ 당첨될 시에 수수료를 받습니다^^<b>(당첨금액에 반띵)</b>.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
